@@ -8,3 +8,8 @@
 
 1.  直接运行demo下的index.html即可
 
+#### 我能学到什么？
++ 1、JQuery操作dom的便捷
++ 2、前端缓存Storage跟indexDB的使用，使用localStorage存储用户行为、搜索跟历史；使用SessionStorage存储接口跟图片URL对象；使用IndexDB存储歌曲，实现0
+流量播放。
++ 3、前端媒体标签audio及其事件。
