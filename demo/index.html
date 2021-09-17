@@ -1,0 +1,1745 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>音乐demo网站</title>
+		<meta name="Keywords" contect="什么歌好听,张祺是谁,听音乐的网站,张祺,张祺和他的小伙伴,hoppinzq,网易云音乐张祺">
+		<meta name="description" content="张祺的demo网站,这只是一个测试网站">
+		<meta http-equiv="Cache-Control" content="public" />
+		<meta http-equiv="Pragma" content="public" />
+		<meta http-equiv="Expires" content="36000" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="css/style.css" rel='stylesheet' type='text/css' />
+		<link href="css/animate.min.css" rel='stylesheet' type='text/css' />
+		<link href="css/jplayer.blue.monday.min.css" rel='stylesheet' type='text/css' />
+		<script type="application/x-javascript">
+			addEventListener("load", function() { //阻止网页滚动条缓存
+				setTimeout(hideURLbar, 0);
+			}, false);
+
+			function hideURLbar() {
+				window.scrollTo(0, 1);
+			}
+		</script>
+		<link href="css/jquery.bxslider.css" rel="stylesheet" type='text/css' / />
+		<link href="css/perfect-scrollbar.css" rel="stylesheet" type='text/css' />
+	</head>
+	<body>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?32869fafe93cc78cbfaa1c7e10d8cca5";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+		<!--暂时不加谷歌js了，有时候加载不了-->
+		<!-- <script>
+			(function(i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] || function() {
+					(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o),
+					m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+			})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+			ga('create', 'UA-1865-24-1',
+				'hoppinzq.com'
+				); 
+			ga('send', 'pageview');
+		</script> -->
+		<script type='text/javascript'>
+			(function() {
+				var bsa = document.createElement('script');
+				bsa.type = 'text/javascript';
+				bsa.async = true;
+				bsa.src = '//s3.buysellads.com/ac/bsa.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(bsa);
+			})();
+		</script>
+		<div class="wrap">
+			<div class="content">
+				<div class="left-content">
+					<div class="start-left-content-colum1">
+						<div class="status-grid user-account"></div>
+						<div class="clear"></div>
+						<div class="search" style="height: 50px;background: #ececec;">
+							<label class="label">搜索歌曲：</label>
+							<input id="search" class='input' style="width: 50%;" value="" />
+							<button class="button" id="search_button">确定</button>
+						</div>
+						<audio loop muted id="audio_dom" controls hidden></audio>
+						<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+						<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+							<div class="jp-type-playlist">
+								<div class="jp-gui jp-interface">
+									<div class="jp-controls">
+										<button class="jp-play" role="button" tabindex="0">播放</button>
+									</div>
+									<div class="jp-progress">
+										<div class="jp-seek-bar">
+											<div class="jp-play-bar"></div>
+										</div>
+									</div>
+									<div class="jp-volume-controls">
+										<button class="jp-mute" role="button" tabindex="0">mute</button>
+										<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+										<div class="jp-volume-bar">
+											<div class="jp-volume-bar-value"></div>
+										</div>
+									</div>
+									<div class="jp-toggles">
+										<button class="jp-repeat" role="button" tabindex="0">重复</button>
+										<button class="jp-shuffle" role="button" tabindex="0">随机</button>
+									</div>
+									<div class="jp-time-holder">
+										<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+										<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+									</div>
+								</div>
+								<div class="jp-playlist">
+									<ul class="list_ul"></ul>
+								</div>
+							</div>
+						</div>
+						<div class="extra-list-section">
+							<div class="extra-list-header">
+								<div class="extra-list-header-left plus">
+									<span> </span>
+								</div>
+								<div class="extra-list-header-right"></div>
+								<div class="clear"></div>
+							</div>
+							<div class="extra-list-people-grids contentHolder" id="userDefault" style="display: none;">
+							</div>
+						</div>
+					</div>
+					<div class="start-left-content-colum2">
+						<div class="calender-grid">
+							<div class="bg" id="div_bg"></div>
+						</div>
+						<div class="clear"></div>
+						<div class="pagenation">
+							<ul>
+								<li class="frist"></li>
+								<li class="last"></li>
+								<li class="commit_type"> 热门评论</li>
+								<div class="clear"></div>
+							</ul>
+						</div>
+						<div class="" id="comments_div"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="right-content">
+					<div class="social_network_likes login"></div>
+					<ul class="bxslider recommend"></ul>
+					<div class="history">
+						<h3 class="title" onclick="$(this).next('ul').toggle(300)">历史 歌曲</h3>
+						<ul class="history_ul" style="display: none;"></ul>
+						<h3 class="title historyChange" style="cursor: pointer;">替换当前播放列表</h3>
+					</div>
+					<div class="form-section album"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="GalMenu GalDropDown">
+			<div class="circle" id="gal">
+				<div class="ring">
+					<a onclick="linkCreate()" title="" class="menuItem">生成外链</a>
+					<a title="" class="menuItem" onclick="clearLocalStorage()">清除缓存</a>
+					<a href="http://hoppinzq.com/blog/blog.html/103/12/25/554/2" target="_blank" title=""
+						class="menuItem">教我安装</a>
+					<a title="" class="menuItem yd" onclick="startYd()">开启引导</a>
+					<a href="http://hoppinzq.com:1234/demo.html" rel="opener noopener nofollow ugc" target="_blank"
+						title="" class="menuItem">插件</a>
+					<a onclick="javascript:void(0)" title="" class="menuItem">反馈BUG</a>
+				</div>
+			</div>
+		</div>
+		<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+		<footer>
+			<script type="text/javascript">
+				document.write(
+					unescape(
+						"%3Cspan id='cnzz_stat_icon_1280114543'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1280114543%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"
+					));
+			</script>
+			<div class="add-mobile-menu closed">
+				<span class="add-mobile-btn open-close"><svg viewBox="0 0 24 24">
+						<path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+					</svg></span>
+				<span class="add-mobile-btn open-close"><svg viewBox="0 0 24 24">
+						<path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+					</svg></span>
+				<span class="add-mobile-btn open-close"><svg viewBox="0 0 24 24">
+						<path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+					</svg></span>
+				<span class="add-mobile-btn open-close"><svg viewBox="0 0 24 24">
+						<path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+					</svg></span>
+				<span class="add-mobile-btn open-close"><svg viewBox="0 0 24 24">
+						<path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+					</svg></span>
+			</div>
+			<span class="footer-span" onclick="myAlert(123)">ICP主体备案号:鲁ICP备2021023310号</span>
+			<span class="footer-right">
+				（右键）这是一个测试网站，本网站主营媒体爬虫，链接请等待公告
+			</span>
+			<div class="footer-bg"></div>
+		</footer>
+	</body>
+	<!-- <script type="text/html" id="musicComment">
+		<div class="item mb-5">
+			<div class="media">
+				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="[var0]" alt="image">
+				<div class="media-body">
+					<h3 class="title mb-1">
+						<a title="用户[var1]详情" target='_blank'></a>
+					</h3>
+					<div class="meta mb-1">
+						<span class="date"></span>
+						<span class="comment">
+							<a onclick='javascript:void(0)'>[var2]</a>
+						</span>
+						<i class="fa fa-heart" style="color:red"></i>
+						<span class="comment like_num">
+							<a onclick='javascript:void(0)'></a>
+							[var3]个喜欢
+						</span>
+						<span class='dianzan startDianzan' style='cursor:pointer' data-cid='[var1]'>[var4]点赞</span>
+					</div>
+					<hr style='margin-top: 6px;margin-bottom: 6px'>
+					<div class="intro">[var5]</div>
+				</div>
+			</div>
+		</div>
+	</script> -->
+	<script type="text/javascript">
+		var items = document.querySelectorAll('.menuItem');
+		for (var i = 0,
+				l = items.length; i < l; i++) {
+			items[i].style.left = (50 - 35 * Math.cos(-0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+			items[i].style.top = (50 + 35 * Math.sin(-0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+		}
+		var addBtn = document.querySelector(".add-mobile-menu");
+		addBtn.addEventListener("click", e => {
+			addBtn.classList.toggle("closed");
+		});
+	</script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.mousewheel.js"></script>
+	<script src="js/perfect-scrollbar.js"></script>
+	<script src="js/jquery.jplayer.min.js"></script>
+	<script src="js/jplayer.playlist.min.js"></script>
+	<script src="js/jquery.bxslider.min.js"></script>
+	<script src="js/tips.js"></script>
+	<script src="js/GalMenu.js"></script>
+	<script src="js/localforage.js"></script>
+	<script src="js/anime.min.js"></script>
+
+	<script>
+		var webURL = "http://hoppinzq.com:1234";
+		var ZQ_music_id = "309621600";
+		var zq_mark = "zq==>_<==qz" //用以拼接分割字符串
+		var historySongs;
+		var myPlaylist = null;
+		var myLyric;
+		var commentLimit = 15;
+		var commentOffset = 1;
+		var commentCount;
+		var lyricType = 0; //0无歌词,1无翻译版本,2有翻译版本
+		var music_now_id;
+		var isCommentHot = "1";
+		var commentObject = {};
+		var isMobile = false;
+		var likeSongList = new Array();
+		var songList = new Array();
+		var albumList = new Array();
+		var timeout = function(n) {
+			return new Promise(function(resolve) {
+				setTimeout(resolve, n);
+			});
+		};
+		var cacheName = new Array();
+		var audio;
+		var audio_hidden;
+		var currentTime = 0;
+		var cacheExtra = new Array();
+
+		/**
+		 * 自定义弹出层
+		 * @author zq
+		 * @param {Object} e 弹出内容
+		 * @param {Object} t 弹出持续时间，默认2s
+		 */
+		function myAlert(e, t) {
+			var alert_msg_index=$(".alert_msg").length;
+			if($(".alert_msg").length){
+				$(".alert_msg").each(function(index,element){
+					if(index<alert_msg_index){
+						$(element).remove();
+					}
+				})
+			}
+			$("<div style='height: 2rem;text-align: center;position: fixed;top: 35%;margin-top: -1rem;line-height: 2rem;width: 100%;'></div>").addClass("alert_msg").attr("id","alert_msg_"+alert_msg_index)
+				.append("<span style='color: #fff;background: rgba(0,0,0,0.6);height: 2rem;display: inline-block;padding: 0 3rem;border-radius: 5px;'>"+e+"</span>")
+				.appendTo($("body")).delay(t || 2000).fadeOut(500,function(){
+					$(this).remove();
+				});
+		}
+
+		/**
+		 * 接口缓存，在请求前调用，将自动判断数据是请求获取还是从缓存获取，从请求获取就把请求信息放入临时缓存
+		 * @author zq
+		 * @param {Object} requestMark 接口标志，可不填
+		 * @param {Object} XMLHttpRequest xhr对象
+		 * @param {Object} settings ajax配置项
+		 */
+		function cacheHttpRequestBeforeSend(requestMark, XMLHttpRequest, settings) {
+			if (settings.type === "GET") {
+				var sessionName = requestMark + settings.url;
+				if (sessionStorage.getItem(sessionName)) {
+					var data = sessionStorage.getItem(sessionName);
+					eval(settings.complete());
+					eval(settings.success(JSON.parse(data)));
+					return false;
+				} else {
+					var isE = false;
+					$.each(cacheExtra, function(index, value) {
+						if (value.sessionName == sessionName) {
+							isE = true;
+							return;
+						}
+					})
+					if (!isE) {
+						cacheExtra.push({
+							sessionName: sessionName,
+							requestMark: requestMark
+						});
+					}
+					return true;
+				}
+			} else if (settings.type === "POST") {
+				//先空着。思路：入参是参数拼接还是json，是json就序列化data处理作为name
+				//参数过多就使用一个随机名存储入参，使用随机名作为name
+			}
+		}
+
+		/**
+		 * 接口缓存 取临时缓存内容处理并放入到缓存
+		 * @author zq
+		 * @param {Object} requestMark
+		 * @param {Object} XMLHttpRequest
+		 * @param {Object} settings
+		 */
+		function cacheHttpRequestComplete(requestMark, XMLHttpRequest, settings) {
+			if (settings == "success") {
+				var responseText = XMLHttpRequest.responseText;
+				$.each(cacheExtra, function(index, value) {
+					if (value.requestMark == requestMark) {
+						sessionStorage.setItem(value.sessionName, responseText);
+						cacheExtra.splice(index, 1)
+						return;
+					}
+				})
+			}
+		}
+
+		/**
+		 * 清除session缓存图片数据
+		 * @author zq
+		 */
+		function cacheImageNameClear() {
+			$.each(cacheName, function(index, value) {
+				sessionStorage.removeItem(value)
+			})
+		}
+
+		/**
+		 * 缓存网易云图片
+		 * 注意：第一次加载的图片不建议直接使用缓存的图片，第二次使用即可
+		 * @author zq
+		 * @param {Object} wyyUrl 图片url
+		 * @param {Object} storageType 已弃用，理论上只存入session，因为当用户在刷新页面的时候，会先执行dom卸载操作，这些对象URL也被垃圾回收掉了，故存入local就会404了
+		 */
+		function cacheNetBaseCloudImg(wyyUrl) {
+			let cacheImageNameIndex_1 = wyyUrl.lastIndexOf("/") + 1;
+			let cacheImageNameIndex_2 = wyyUrl.lastIndexOf(".");
+			let cacheImageName = "image_" + wyyUrl.substring(cacheImageNameIndex_1, cacheImageNameIndex_2);
+			var StorageCacheImageUrl;
+			StorageCacheImageUrl = sessionStorage.getItem(cacheImageName);
+			if (StorageCacheImageUrl != null) {
+				return StorageCacheImageUrl;
+			} else {
+				var xhr = new XMLHttpRequest();
+				var blob;
+				xhr.open('GET', wyyUrl, true);
+				xhr.responseType = 'blob';
+				xhr.onload = function() {
+					var data = xhr.response;
+					blob = new Blob([data]);
+					// var reader = new window.FileReader();
+					// reader.readAsDataURL(blob); 
+					// reader.onloadend = function() {
+					// 	localStorage.setItem(cacheImageName, reader.result);
+					// }
+					var blobUrl = window.URL.createObjectURL(blob);
+					cacheName.push(cacheImageName);
+					sessionStorage.setItem(cacheImageName, blobUrl);
+					return blobUrl;
+				};
+				xhr.send();
+			}
+		}
+
+		/**
+		 * 缓存网易云音乐
+		 * 注意：一次缓存大小最大是3M，4M，音乐等媒体文件一般会溢出，IndexedDB
+		 * @author zq
+		 * @param {Object} musicURL
+		 */
+		function cacheNetBaseCloudMusic(musicURL) {
+			let cacheMusicNameIndex_1 = musicURL.lastIndexOf("=") + 1;
+			let cacheMusicNameIndex_2 = musicURL.lastIndexOf(".");
+			let cacheMusicName = "music_" + musicURL.substring(cacheMusicNameIndex_1, cacheMusicNameIndex_2);
+			localforage.getItem(cacheMusicName, function(err, value) {
+				if (value == null) {
+					$.get("http://hoppinzq.com/music/getMusicRealUrl?url=" + musicURL, function(data) {
+						if (data.code == 200) {
+							let realUrl = data.data;
+							var xhr = new XMLHttpRequest();
+							var blob;
+							xhr.open('GET', realUrl, true);
+							xhr.responseType = 'blob';
+							xhr.onload = function() {
+								var data = xhr.response;
+								blob = new Blob([data]);
+								localforage.setItem(cacheMusicName, blob);
+							};
+							xhr.send();
+						}
+					})
+				} else {
+					return value;
+				}
+			});
+		}
+
+		// function loadTemplete(id, data) {
+		// 	var html = document.getElementById(id).innerHTML;
+		// 	var reg = new RegExp("\\[([^\\[\\]]*?)\\]", 'igm'); //i g m是指分别用于指定区分大小写的匹配、全局匹配和多行匹配。
+		// 	var source = html.replace(reg, function(node, key) {
+		// 		console.log("node:"+node+",key:"+key)
+		// 		return {
+		// 			'var0': 'https://p2.music.126.net/IL5ONOyk-75meGLn7CZ2dA==/109951163597419443.jpg?param=700y450',
+		// 			'var1': '张',
+		// 			'var2': '2011-1-1',
+		// 			'var3': '张',
+		// 			'var4': 2,
+		// 			'var5': 3,
+		// 		} [key];
+		// 	});
+		// 	$("body").append(source);
+		// }
+
+		//js入口
+		$(function() {
+			//loadTemplete("musicComment")
+			//本来想统计用户的报错，还是用分析工具js吧
+			// $.ajaxSetup({
+			//          statusCode: {
+			//               404: function() {
+			//                   alert('数据获取/输入失败，没有此服务。404');
+			//               },
+			//               504: function() {
+			//                   alert('数据获取/输入失败，服务器没有响应。504');
+			//               },
+			//               500: function() {
+			//                   alert('服务器有误。500');
+			//               },
+			// 			  200:function(){
+			// 				  alert(123)
+			// 			  },
+			// 			  302:function(data){
+			// 				  console.log(data)
+			// 			  }
+			//             }
+			//        });
+
+			//判断用户是移动端还是PC端
+			if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+				isMobile = true;
+			}
+			//给滚动条绑定事件，初步是想让歌词页面跟随移动端滚动，已弃用
+			$(window).on("scroll", function() {
+				var scroll = $(window).scrollTop();
+				if (document.body.clientWidth < 600 && scroll > 1000) {
+					//$(".audio-main").addClass("scroll animated slideInDown");
+					//$(".bg").addClass("scroll animated slideInDown");
+					// $(".login").fadeOut(500);
+				} else if (document.body.clientWidth < 600 && scroll < 1000) {
+					//$(".audio-main").removeClass("scroll animated slideInDown");
+					//$(".bg").removeClass("scroll animated slideInDown");
+					//$(".login").fadeIn(500);
+				}
+				// 	var $footer = $("footer");
+				// 	if (isMobile) {
+				// 		if ((parseInt(scroll) + parseInt($(window).height()) + parseInt(80)) >= parseInt($(document).height())) {
+				// 			$footer.animate({
+				// 				left: "-400px"
+				// 			}, function() {
+
+				// 			});
+				// 		} else {
+				// 			$footer.animate({
+				// 				left: "0px"
+				// 			}, 350, function() {
+
+				// 			});
+				// 		}
+				// 	}
+			}).on("beforeunload", function() { //给页面刷新跟关闭绑定事件，手动清除缓存，并存储用户最后一次搜索的内容
+				localStorage.setItem("lastSearch", $("#search").val());
+				sessionStorage.clear();
+			});
+			if (typeof(Storage) !== "undefined") { //判断是否支持缓存，一般支持√
+				var user = localStorage.getItem("userId");
+				//如果用户没有登录，就用zq我本人的账户登录，拿到token到cookie里面，因为部分请求需要携带用户登录token的cookie
+				if (user == null || user == "309621600") {
+					$.ajax({
+						url: webURL +
+							"/login/cellphone?phone=15028582175&md5_password=6ddc50e667241c0a5b7cc3b6b7538cbd",
+						xhrFields: {
+							withCredentials: true, //这个配置项就是携带cookie，如果你想跨域请求我的接口，则必须携带（本项目可以不用，不代表你可以不用）
+						},
+						success: function(data) {
+							console.log("zq的网易云登录成功")
+						},
+						error: function(err) {
+							console.log(err)
+						},
+					})
+					$(".login").append(
+						"<form class='login-form' name='login' method='get'><input required='' id='user_phone' name='user_phone' class='input' type='text' placeholder='手机号' /><input id='password' class='input' name='password' type='password' placeholder='网易云密码' /><input id='email' class='input' name='email' readonly type='email' placeholder='网易云注册邮箱(可选)' /><input id='md5_password' class='input' name='md5_password' type='text' placeholder='md5加密的网易云密码(可选)' /><button class='button' type='submit' >登录</button><form>"
+					);
+					ZQ_music_id = "309621600";
+				} else {
+					$(".login").html("欢迎你！" + localStorage.getItem("userName") + ",<a href='#' id='zhuxiao'>注销</a>");
+					ZQ_music_id = localStorage.getItem("userId");
+				}
+				localStorage.setItem("userId", ZQ_music_id);
+			}
+			var lastSearch = localStorage.getItem("lastSearch") || "爱的供养";
+			//解析url里面的key并放到搜索栏里
+			if (getWebURLKey("key") == null) {
+				$("#search").val(decodeURI(lastSearch));
+			} else {
+				$("#search").val(decodeURI(getWebURLKey("key")));
+				if (getWebURLKey("time") != null) {
+					currentTime = getWebURLKey("time");
+				}
+			}
+
+			initDom();
+			searchSong();
+			initUserMessage();
+			initRecommend();
+			initCommit();
+			initHistory();
+			initJPlayer();
+			initTips();
+		});
+
+		/**
+		 * 初始化引导
+		 */
+		function initTips() {
+			if (isMobile || (localStorage.getItem("yd") && localStorage.getItem("yd") == "0")) {
+
+			} else {
+				//最好全部bottom，因为手机端。。。
+				var tips = [{
+					$element: $(".user-account"),
+					popover: {
+						title: 'NO.1',
+						description: '网易云个人信息区域',
+						position: 'bottom'
+					}
+				}, {
+					$element: $(".jp-gui"),
+					popover: {
+						title: 'NO.2',
+						description: '控件区域',
+						position: 'bottom'
+					}
+				}, {
+					$element: $(".jp-playlist"),
+					popover: {
+						title: 'NO.3',
+						description: '音乐列表区域',
+						position: 'bottom'
+					}
+				}, {
+					$element: $(".extra-list-section"),
+					popover: {
+						title: 'NO.4',
+						description: '额外网易云用户信息',
+						position: 'bottom'
+					}
+				}, {
+					$element: $(".bg"),
+					popover: {
+						title: 'NO.5',
+						description: '歌词区域',
+						position: 'bottom'
+					}
+				}, {
+					$element: $("#comments_div"),
+					popover: {
+						title: 'NO.6',
+						description: '评论区域',
+						position: 'bottom'
+					}
+				}, {
+					$element: $(".login"),
+					popover: {
+						title: 'NO.7',
+						description: '在这里登录',
+						position: 'bottom'
+					}
+				}, {
+					$element: $(".history"),
+					popover: {
+						title: 'NO.8',
+						description: '听过的历史歌曲在这里',
+						position: 'bottom'
+					}
+				}, {
+					$element: $(".search"),
+					popover: {
+						title: 'NO.9',
+						description: '搜索喜欢的歌曲开始体验吧',
+						position: 'bottom'
+					},
+					endCallback: function() {
+						alert("已取消引导，如需下次打开引导：PC端请单击右键设置；移动端长摁屏幕设置");
+						localStorage.setItem("yd", "0");
+						$(".jp-play").click();
+					}
+				}];
+				var tipsOption = {
+					"cancel": {
+						cancelFunc: function() {
+							alert("已取消引导，如需下次打开引导：PC端请单击右键设置；移动端长摁屏幕设置");
+							localStorage.setItem("yd", "0");
+							$(".jp-play").click();
+						}
+					},
+					"ok": {
+						okFunc: function() {
+							$(".jp-play").click();
+						}
+					}
+				}
+				tipsOption.tips = tips;
+				$.tips(tipsOption);
+			}
+		}
+
+		/**
+		 * 开启/关闭引导
+		 */
+		function startYd() {
+			if (isMobile) {
+				alert("移动端样式（主要是滚动）不好调，只在PC端使用该功能");
+				return;
+			}
+			if (localStorage.getItem("yd") && localStorage.getItem("yd") == "0") {
+				$(".yd").text("关闭引导");
+				localStorage.setItem("yd", "1");
+			} else {
+				localStorage.setItem("yd", "0");
+				$(".yd").text("开启引导");
+			}
+			alert("刷新页面生效");
+		}
+
+		/**
+		 * 清除缓存
+		 */
+		function clearLocalStorage() {
+			localStorage.clear();
+			sessionStorage.clear();
+			localforage.clear();
+			alert("缓存清理成功");
+		}
+
+		/**
+		 * 解析url
+		 * 注意：只支持解析参数被序列化的url
+		 * @author zq
+		 * @param {Object} variable 要解析的参数
+		 */
+		function getWebURLKey(variable) {
+			var query = window.location.search.substring(1);
+			var vars = query.split("&");
+			for (var i = 0; i < vars.length; i++) {
+				var pair = vars[i].split("=");
+				if (pair[0] == variable) {
+					return pair[1];
+				}
+			}
+			return null;
+		}
+
+		/**
+		 *
+		 */
+		function linkCreate() {
+			alert("在该链接后面拼接参数?key=歌曲&time=播放时间，时间为可选参数，如http://hoppinzq.com:1234?key=龍王殺しのプリンセス&time=100");
+		}
+
+		/**
+		 * 关闭绑定在dom上的遮罩层
+		 * @author zq
+		 * @param {Object} $dom jQuery对象
+		 */
+		function fadeOutLoading($dom) {
+			$dom.find(".preloader").fadeOut(200);
+		}
+
+		/**
+		 * 在指定dom上添加遮罩层
+		 * @author zq
+		 * @param {Object} $dom jQuery对象
+		 * @param {Object} height 离dom顶部距离，如果有该参数则会覆盖自动计算的高
+		 * @param {Object} width 离dom左边距离，如果有该参数则会覆盖自动计算的宽
+		 */
+		function bindLoading($dom, height, width) {
+			if ($dom.find(".preloader").length > 0) {
+				$dom.find(".preloader").fadeIn();
+				return;
+			}
+			let {
+				top,
+				left
+			} = $dom.get(0).getBoundingClientRect();
+			let {
+				scrollTop,
+				scrollLeft
+			} = document.body;
+			let dom_width = width || $dom.width();
+			let dom_height = height || $dom.height();
+			let $preloader = $('<div></div>').addClass('preloader')
+				.height(dom_height).width(dom_width).offset({
+					top: top + scrollTop,
+					left: left + scrollLeft
+				})
+			$dom.prepend($preloader);
+		}
+
+		/**
+		 * 初始化页面的dom，注意该初始化的是html代码本来就有的dom，不包括通过js生成的
+		 */
+		function initDom() {
+			audio_hidden = $("#audio_dom").get(0);
+			$("#search_button").click(function() {
+				searchSong();
+			})
+			$(".plus").click(function() {
+				if ($(".list_ul").css("display") == "block" && $("#userDefault").css("display") == "none") {
+					$(".list_ul").fadeOut(500);
+					$("#userDefault").fadeIn(500);
+				} else if ($(".list_ul").css("display") == "none" && $("#userDefault").css("display") == "block") {
+					$(".list_ul").fadeIn(500);
+					$("#userDefault").fadeOut(500);
+				}
+			})
+			$(".jp-type-playlist").off("click").on("click", function(e) {
+				$(".jp-playlist-current").find("a").each(function(index, element) {
+					if (index === 1) {
+						var $a = $(element);
+						$(".jp-playlist").find("a").each(function(index, element) {
+							$(element).removeClass("active_music")
+						});
+						$a.addClass("active_music");
+					}
+				});
+			});
+			$('body').GalMenu({
+				'menu': 'GalDropDown'
+			});
+			$(".historyChange").click(function() {
+				songList = JSON.parse(localStorage.getItem('historySongs'));
+				setMusicList(songList);
+				// if (isMobile) {
+				// 	$(document.documentElement).animate({
+				// 		scrollTop: "600px"
+				// 	}, 500);
+				// }
+			})
+		}
+
+		/**
+		 * 初始化评论
+		 */
+		function initCommit() {
+			animeText({
+				str: "这里是空空如也的评论区。。。Tips:1、在本网站里，PC端的右键就相当于移动端的长摁;2、本网页是测试网页，测试百度谷歌等分析代码，测试缓存等等;3、" +
+					"如需了解本站后台搭建，右键选择'教我安装',或者F12查看源代码;4、如果您决意不再打开本网页，请退出前右键清除缓存。。我要听歌。。。。。。。。。。。。。。。。。。。。",
+				effect: "left",
+				speed: 150,
+				dom: "#comments_div",
+				endCallback: function() { //字幕滚动完执行方法
+					// if(document.getElementById("jp_audio_0").pause){
+					// 	$(".jp-play").click();
+					// }
+				}
+			});
+		}
+
+		/**
+		 * 初始化历史记录歌曲
+		 */
+		function initHistory() {
+			var historys = JSON.parse(localStorage.getItem('historySongs'));
+			if (historys != null && historys.length != 0) {
+				$.each(historys, function(index, value) {
+					$("<li style='margin-top:6px'>" + value.title + "by ~ " + value.artist + "</li>").appendTo($(
+						".history_ul"))
+				})
+			}
+		}
+
+		/**
+		 * 字体滚动出现，可以用该代码做成一个组件，但是代码太少就作罢
+		 * @param {Object} parameter 见默认配置项
+		 */
+		function animeText(parameter) {
+
+			let defaults = {
+				str: "默认的字段，hoppinzq的小站,网址hoppinzq.com",
+				effect: "upBig",
+				speed: 200,
+				dom: "body",
+			}
+			var opt = $.extend({}, defaults, parameter);
+			arr = [];
+			for (let i = 0; i < opt.str.length; i++) {
+				arr[i] = opt.str[i];
+			}
+			let num = 0;
+			obj = setInterval(function() {
+				let dom = opt.dom;
+				let $dom = $(dom);
+				let randomN = Math.floor(Math.random() * 4) + 1;
+				let eff = null;
+				if (randomN === 1) {
+					eff = "fadeInRightBig";
+				}
+				if (randomN === 2) {
+					eff = "fadeInLeftBig";
+				}
+				if (randomN === 3) {
+					eff = "fadeInUpBig";
+				}
+				if (randomN === 4) {
+					eff = "fadeInDownBig";
+				}
+				if (opt.effect === "normal") {
+					$dom.append('<span style="display: inline-block;" class="tip">' + arr[num] + '</span>');
+				} else if (opt.effect === "rightBig") {
+					$dom.append('<span style="display: inline-block;" class="tip animated fadeInRightBig">' + arr[
+						num] + '</span>');
+				} else if (opt.effect === "right") {
+					$dom.append('<span style="display: inline-block;" class="tip animated fadeInRight">' + arr[num] +
+						'</span>');
+				} else if (opt.effect === "leftBig") {
+					$dom.append('<span style="display: inline-block;" class="tip animated fadeInLeftBig">' + arr[
+						num] + '</span>');
+				} else if (opt.effect === "left") {
+					$dom.append('<span style="display: inline-block;" class="tip animated fadeInLeft">' + arr[num] +
+						'</span>');
+				} else if (opt.effect === "downBig") {
+					$dom.append('<span style="display: inline-block;" class="tip animated fadeInDownBig">' + arr[
+						num] + '</span>');
+				} else if (opt.effect === "down") {
+					$dom.append('<span style="display: inline-block;" class="tip animated fadeInDown">' + arr[num] +
+						'</span>');
+				} else if (opt.effect === "upBig") {
+					$dom.append('<span style="display: inline-block;" class="tip animated fadeInUpBig">' + arr[num] +
+						'</span>');
+				} else if (opt.effect === "up") {
+					$dom.append('<span style="display: inline-block;" class="tip animated fadeInUp">' + arr[num] +
+						'</span>');
+				} else if (opt.effect === "random") {
+					$dom.append('<span style="display: inline-block;" class="tip animated ' + eff + '">' + arr[num] +
+						'</span>');
+				}
+				num++
+				if (num === arr.length) {
+					clearInterval(obj);
+					if (parameter.endCallback) {
+						parameter.endCallback.call();
+					}
+				}
+			}, opt.speed);
+
+		}
+
+		/**
+		 * 初始化专辑
+		 * @param {Object} albums
+		 */
+		function initAlbum(albums) {
+			if ($(".al_block").data("id") == albums[0].id) {
+				return;
+			}
+			var html = "";
+			$(".album").html(html);
+			$.each(albums, function(index, value) {
+				var picUrl = cacheNetBaseCloudImg(value.picUrl);
+				html +=
+					"<div data-id='" + value.id +
+					"' class='al_block'><div class='profile-section pt-3 pt-lg-0'><img class='profile-image mb-3 rounded-circle mx-auto' src='" +
+					(picUrl === undefined ? value.picUrl : picUrl) +
+					"' alt='image' style='float:left'><div class='bio mb-3'>" +
+					value.name +
+					"<br><a class='albumChange' data-id='" + value.id +
+					"' style='cursor: pointer;'>替换当前播放列表</h3></div></div></div>";
+			})
+			$(".album").append(html);
+			$(".albumChange").on('click', function() {
+				var $dom = $(this).parents(".al_block");
+				$.get(webURL + "/album?id=" + $(this).data("id"), function(data) {
+					var album = data.album;
+					songList.length = 0;
+					$.each(data.songs, function(index, value) {
+						var artist = "";
+						$.each(value.ar, function(index, value) {
+							artist += value.name + " ";
+						})
+						songList.push({
+							id: value.id,
+							title: value.name,
+							artist: artist,
+							mp3: "http://music.163.com/song/media/outer/url?id=" + value.id +
+								".mp3",
+						})
+					});
+					setMusicList(songList);
+					// if (isMobile) {
+					// 	$(document.documentElement).animate({
+					// 		scrollTop: "600px"
+					// 	}, 500);
+					// }
+				})
+			})
+		}
+
+		/**
+		 * 动态设置播放列表
+		 * 注意：在执行setPlaylist方法会执行init方法，该方法会把当前播放时间currentTime置为0，这会导致音乐重新从列表第一首开始重新播放
+		 * 而原来你在听的歌曲会停掉，我的做法是：在播放时就建立一个被静音的播放源，在执行此法时将静音去掉，此时声音会增大，这是因为原有
+		 * 的播放源的音量使用的系统音量乘以用户拖动的音量百分比，在切换播放源时会立即使用系统音量因此要手动×上一个比值。
+		 * @param {Object} songList
+		 */
+		function setMusicList(songList) {
+			timeout(1).then(function() {
+				$.each(songList, function(index, value) {
+					localforage.getItem("music_" + value.id, function(err, value_) {
+						if (value_ != null) {
+							var url = window.URL.createObjectURL(value_);
+							value.mp3 = url;
+						}
+					});
+				})
+				return timeout(1000);
+			}).then(function() {
+				myAlert("切换声音源中。。。");
+				myPlaylist.setPlaylist(songList);
+				audio_hidden.muted = false;
+				var wi = parseFloat($(".jp-volume-bar-value").width() / $(".jp-volume-bar").width()).toFixed(2);
+				audio_hidden.volume = wi;
+			});
+
+		}
+
+		/**
+		 * 歌曲搜索
+		 */
+		function searchSong() {
+			songList.length = 0;
+			var serach_song_name = $("#search").val();
+			if (serach_song_name === undefined || serach_song_name === "") {
+				return; //或者初始化展示用户喜欢的音乐
+			}
+			$.ajax({
+				url: webURL + '/search?keywords=' + serach_song_name,
+				beforeSend: function(xhr, settings) {
+					if (!cacheHttpRequestBeforeSend("search_song", xhr, settings)) {
+						return false;
+					};
+					bindLoading($(".jp-playlist")); //, 619
+				},
+				complete: function(xhr, settings) {
+					cacheHttpRequestComplete("search_song", xhr, settings)
+					fadeOutLoading($(".jp-playlist"));
+				},
+				success: function(data) {
+					var songs = data.result.songs
+					$.each(songs, function(index, value) {
+						var artist = "";
+						$.each(value.artists, function(index, value) {
+							artist += value.name + " ";
+						})
+						songList.push({
+							id: value.id,
+							title: value.name,
+							artist: artist,
+							mp3: "http://music.163.com/song/media/outer/url?id=" + value.id +
+								".mp3",
+						})
+					});
+					if (myPlaylist != null) {
+						setMusicList(songList);
+					}
+				}
+			})
+		}
+
+		/**
+		 * 初始化播放器
+		 */
+		function initJPlayer() {
+			myPlaylist = new jPlayerPlaylist({
+				jPlayer: "#jquery_jplayer_1",
+				cssSelectorAncestor: "#jp_container_1"
+			}, [], {
+				swfPath: "../../dist/jplayer",
+				supplied: "oga, mp3",
+				wmode: "window",
+				useStateClassSkin: true,
+				autoBlur: false,
+				smoothPlayBar: true,
+				keyEnabled: true,
+				keyBindings: {
+					play: {
+						key: 80, // p
+						fn: function(f) {
+							if (f.status.paused) {
+								f.play();
+							} else {
+								f.pause();
+							}
+						}
+					},
+					fullScreen: {
+						key: 70, // f
+						fn: function(f) {
+							if (f.status.video || f.options.audioFullScreen) {
+								f._setOption("fullScreen", !f.options.fullScreen);
+							}
+						}
+					},
+					muted: {
+						key: 77, // m
+						fn: function(f) {
+							f._muted(!f.options.muted);
+						}
+					},
+					volumeUp: {
+						key: 190, // .
+						fn: function(f) {
+							f.volume(f.options.volume + 0.1);
+						}
+					},
+					volumeDown: {
+						key: 188, // ,
+						fn: function(f) {
+							f.volume(f.options.volume - 0.1);
+						}
+					},
+					loop: {
+						key: 76, // l
+						fn: function(f) {
+							f._loop(!f.options.loop);
+						}
+					}
+				},
+				play: function(e) {
+					console.log(e.jPlayer.status.media)
+					var music_id = e.jPlayer.status.media.id;
+					$(audio_hidden).attr("src", e.jPlayer.status.media.mp3);
+					audio_hidden.muted = true;
+					audio_hidden.play();
+					localforage.getItem("music_" + music_id, function(err, value_) {
+						if (value_ == null) {
+							cacheNetBaseCloudMusic(e.jPlayer.status.media.mp3);
+						}
+					});
+					//$("#search").val(e.jPlayer.status.media.title)
+					music_now_id = music_id;
+
+					var history = localStorage.getItem("historySongs");
+					if (undefined == history || null == history) {
+						historySongs = [];
+					} else {
+						historySongs = JSON.parse(history);
+					}
+					var isE = false;
+					for (let historySong of historySongs) {
+						if (historySong.id === music_id) {
+							isE = true;
+							break;
+						}
+					}
+					if (!isE) {
+						historySongs.push(e.jPlayer.status.media);
+						localStorage.setItem("historySongs", JSON.stringify(historySongs));
+					}
+					$.get(webURL + '/song/detail?ids=' + music_id, function(data) {
+						albumList.length = 0
+						var song_al = data.songs[0].al;
+						albumList.push(song_al)
+						initAlbum(albumList);
+					});
+					$.get(webURL + '/lyric?id=' + music_id, function(data) {
+						if (data.tlyric === undefined) {
+							lyricType = 0;
+							myLyric = [{
+								"time": 0,
+								"content": "纯音乐,无歌词"
+							}];
+						} else if ("" == data.tlyric.lyric) {
+							lyricType = 1;
+							myLyric = parseLyric(data.lrc.lyric);
+						} else {
+							lyricType = 2;
+							myLyric = translate(data.lrc.lyric, data.tlyric.lyric);
+						}
+						showLyric();
+					});
+
+					if (sessionStorage.getItem("saveComments_" + commentOffset + "_" + music_now_id) != null) {
+						commentToDom(JSON.parse(sessionStorage.getItem("saveComments_" + commentOffset + "_" +
+							music_now_id)));
+					} else {
+						$.ajax({
+							url: webURL + '/comment/music?id=' + music_id,
+							cache: true,
+							beforeSend: function() {
+								bindLoading($("#comments_div"), 600);
+							},
+							complete: function() {
+								fadeOutLoading($("#comments_div"))
+								$('.preloader').fadeOut(200);
+							},
+							success: function(data) {
+								commentObject.comments = data.comments;
+								commentObject.hotComments = data.hotComments;
+								commentCount = parseInt(data.hotComments.total / commentOffset);
+								if ($(".comment_menu").data("ishotcomment") == "1") {
+									commentToDom(data.hotComments);
+								} else {
+									commentToDom(data.hotComments);
+								}
+							},
+							error: function() {
+								alert("获取热评错误")
+							}
+						})
+					}
+				}
+			});
+			audio = document.getElementById("jp_audio_0");
+			audio.currentTime = currentTime;
+		}
+
+		/**
+		 * 初始化评论
+		 * @param {Object} comments
+		 */
+		function commentToDom(comments) {
+			sessionStorage.setItem("saveComments_" + commentOffset + "_" + music_now_id, JSON.stringify(comments));
+			$("#comments_div").html("");
+			for (var i = 0; i < comments.length; i++) {
+				var img = comments[i].user.avatarUrl;
+				var user = comments[i].user.nickname;
+				var user_id = comments[i].user.userId;
+				var time = comments[i].time;
+				var comment = comments[i].content;
+				var like = comments[i].likedCount;
+				var commentId = comments[i].commentId;
+				var imgUrl = cacheNetBaseCloudImg(img);
+				var text = "<div class=\"item mb-5\">\n" +
+					"                    <div class=\"media\">\n" +
+					"                        <img class=\"mr-3 img-fluid post-thumb d-none d-md-flex\" src='" + (imgUrl ==
+						undefined ?
+						img : imgUrl) + "' alt=\"image\">\n" +
+					"                        <div class=\"media-body\">\n" +
+					"                            <h3 class=\"title mb-1\"><a title='用户 " + user +
+					"&nbsp;详情' target='_blank' href='https://music.163.com/#/user/home?id=" + user_id + "'>" + user +
+					"</a></h3>\n" +
+					"                            <div class=\"meta mb-1\"><span class=\"date\">" + getRealDate(time) +
+					"<span class=\"comment\"><a onclick='javascript:void(0)'></a></span>" +
+					"<i class=\"fa fa-heart\" style=\"color:red\"></i><span class=\"comment like_num\"><a onclick='javascript:void(0)'>" +
+					like +
+					"</a>个喜欢</span>💗<span class='dianzan startDianzan' style='cursor:pointer' data-cid='" + commentId +
+					"'>点赞</span></div><hr style='margin-top: 6px;margin-bottom: 6px'>\n" +
+					"                            <div class=\"intro\">" + comment + "</div>\n" +
+					"                        </div>\n" +
+					"                    </div>\n" +
+					"                </div>";
+				$("#comments_div").append(text);
+			}
+			$("#comments_div").show();
+			$('#comments_div').perfectScrollbar();
+			$(".pagenation").show();
+			$(".frist").off('click').on('click', function() {
+				if (commentOffset == 1) {
+					$(".commit_type").text("热门评论");
+					return;
+				}
+				commentOffset--;
+				initComment();
+			})
+			$(".last").off('click').on('click', function() {
+				$(".commit_type").text("最新评论");
+				if (commentOffset == commentCount) {
+					return;
+				}
+				commentOffset++;
+				initComment();
+			})
+
+			$(".dianzan").on("click", function() {
+				var $dom = $(this);
+				var cid = $(this).data("cid");
+				var $like = $(this).prev("span").children("a");
+				var like = parseInt($like.text());
+				if ($(this).hasClass("startDianzan")) {
+					$.ajax({
+						url: "/comment/like?id=" + music_now_id + "&cid=" + cid + "&t=1&type=0",
+						xhrFields: {
+							withCredentials: true, //非同源需要携带用户登录的cookie，本页面不需要，其他项目必须添加该配置项
+						},
+						success: function(data) {
+							$like.text(like + 1);
+							$dom.text("取消点赞")
+							alert("点赞成功！");
+						},
+						error: function(err) {
+							console.log(err)
+						},
+					})
+					$(this).removeClass("startDianzan");
+				} else {
+					$.get("/comment/like?id=" + music_now_id + "&cid=" + cid + "&t=0&type=0",
+						function(res) {
+							$like.text(like - 1);
+							$dom.text("点赞")
+							alert("取消点赞成功！")
+						})
+					$(this).addClass("startDianzan");
+				}
+			})
+		}
+
+		/**
+		 * 初始化评论
+		 */
+		function initComment() {
+			if (sessionStorage.getItem("saveComments_" + commentOffset + "_" + music_now_id) != null) {
+				commentToDom(JSON.parse(sessionStorage.getItem("saveComments_" + commentOffset + "_" + music_now_id)));
+			} else {
+				$.ajax({
+					url: webURL + "/comment/music?id=" + music_now_id + "&limit=" + commentLimit + "&offset=" +
+						commentOffset,
+					cache: true,
+					beforeSend: function() {
+						bindLoading($("#comments_div"), 600);
+					},
+					complete: function() {
+						fadeOutLoading($("#comments_div"))
+					},
+					success: function(data) {
+						if (data.code == 200) {
+							commentToDom(data.comments);
+						}
+					}
+				})
+			}
+
+		}
+
+		/**
+		 * 翻译
+		 */
+		function fanyi() {
+			if ($(".lyric_ul").hasClass("lyric_cn")) {
+				$(".lyric_ul").removeClass("lyric_cn");
+				$(".lyric_ul").find(".lyric_li").each(function(index, element) {
+					var $self = $(element);
+					$self.html($self.data("content"));
+				})
+			} else {
+				$(".lyric_ul").addClass("lyric_cn");
+				$(".lyric_ul").find(".lyric_li").each(function(index, element) {
+					var $self = $(element);
+					$self.html($self.data("translate"));
+				})
+			}
+		}
+
+		/**
+		 * 初始化歌词
+		 */
+		function initLyric() {
+			$("#div_bg").html("");
+		}
+
+		/**
+		 * 展示歌词
+		 */
+		function showLyric() {
+			initLyric();
+			$("#div_bg").fadeIn();
+			var result = myLyric;
+			var $ul = $("<ul class='lyric_ul'></ul>");
+			for (var i = 0; i < result.length; i++) {
+				var content_ = "" + result[i].content;
+				var translate_ = result[i].translate === undefined ? '' : result[i].translate
+				var $li = $("<li class='lyric_li'></li>").data("content", content_)
+					.data("translate", translate_) //好吧，必须得这么干，因为外国歌词（如Let's）有''"容易造成困惑
+					.html(result[i].content);
+				$ul.append($li);
+			}
+			$(".bg").append($ul);
+			if (lyricType === 2) {
+				$ul.after($("<button style='position: absolute;margin:0px;bottom: 0px;'>翻译</button>").addClass('button').on("click",
+					function() {
+						fanyi();
+					}))
+			}
+			var lineNo = 0;
+			var preLine = 0;
+			var lineHeight = -30;
+			highLight(lineNo, preLine, lineHeight, $ul);
+
+			audio.addEventListener("timeupdate", function() {
+				if (lineNo == result.length) return;
+				if ($("li").eq(0).hasClass("active")) {
+					$("ul").css("top", "0");
+				}
+				lineNo = getLineNo(audio.currentTime, result, lineNo);
+				highLight(lineNo, preLine, lineHeight, $ul);
+				lineNo++;
+			});
+
+			audio.addEventListener("ended", function() {
+				lineNo = 0;
+				highLight(lineNo, preLine, lineHeight, $ul);
+				audio.play();
+				$("ul").css("top", "0");
+			});
+		}
+
+		/**
+		 * 歌词跳转（当改变播放时间的时候）
+		 * @param {Object} currentTime
+		 * @param {Object} result
+		 * @param {Object} lineNo
+		 */
+		function getLineNo(currentTime, result, lineNo) {
+			if (currentTime >= parseFloat(result[lineNo].time)) {
+				for (var i = result.length - 1; i >= lineNo; i--) {
+					if (currentTime >= parseFloat(result[i].time)) {
+						return i;
+					}
+				}
+			} else {
+				for (var i = 0; i <= lineNo; i++) {
+					if (currentTime <= parseFloat(result[i].time)) {
+						return i - 1;
+					}
+				}
+			}
+		}
+
+		/**
+		 * 高光歌词
+		 * @param {Object} lineNo
+		 * @param {Object} preLine
+		 * @param {Object} lineHeight
+		 * @param {Object} dom
+		 */
+		function highLight(lineNo, preLine, lineHeight, dom) {
+			var $li = $("#div_bg>ul>li");
+			$li.eq(lineNo).addClass("active").siblings().removeClass("active");
+			if (lineNo > preLine) {
+				dom.stop(true, true).animate({
+					top: (lineNo - preLine) * lineHeight
+				});
+			}
+		}
+
+		/**
+		 * 解析歌词
+		 * @param {Object} text
+		 */
+		function parseLyric(text) {
+			if (text !== "") {
+				var lyricArr = text.split('\n');
+				var result = [];
+				for (var i = 0; i < lyricArr.length; i++) {
+					var playTimeArr = lyricArr[i].match(/\[\d{2}:\d{2}((\.|\:)\d{2})\]/g);
+					if (playTimeArr == null) {
+						playTimeArr = lyricArr[i].match(/\[\d{2}:\d{2}((\.|\:)\d{3})\]/g);
+					}
+					var lineLyric = "";
+					if (lyricArr[i].split(playTimeArr).length > 0) {
+						lineLyric = lyricArr[i].split(playTimeArr);
+					}
+					if (playTimeArr != null) {
+						for (var j = 0; j < playTimeArr.length; j++) {
+							var time = playTimeArr[j].substring(1, playTimeArr[j].indexOf("]")).split(":");
+							result.push({
+								time: (parseInt(time[0]) * 60 + parseFloat(time[1])).toFixed(4),
+								content: String(lineLyric).substr(1)
+							});
+						}
+					}
+				}
+				return result;
+			} else {
+				return [{
+					"time": 0,
+					"content": "纯音乐,无歌词"
+				}];
+			}
+		}
+
+
+		/**
+		 * 翻译歌词
+		 * @param {Object} lyric
+		 * @param {Object} translateLyric
+		 */
+		function translate(lyric, translateLyric) {
+			var lyricList = parseLyric(lyric);
+			var translateLyricList = parseLyric(translateLyric);
+			$.each(lyricList, function(index, value) {
+				$.each(translateLyricList, function(index_, value_) {
+					if (value.time === value_.time) {
+						value.translate = value_.content;
+					}
+				})
+			})
+			return lyricList;
+		}
+
+		/**
+		 * 初始化推荐
+		 */
+		function initRecommend() {
+			$.get(webURL + "/recommend/resource", function(data) {
+				if (data.code == 200) {
+					$(".recommend").html("");
+					var recommend_dom_text = "";
+					$.each(data.recommend, function(index, value) {
+						recommend_dom_text += "<li><img src='" + value.picUrl + "?param=700y450' />\n" +
+							"\t\t\t\t\t\t\t<p><span class='recommend_span' data-id='" + value.id +
+							"' style='cursor:pointer'>" + value.name +
+							"</span><small>" + value.copywriter + "</small></p> <label>" + value.trackCount +
+							" <i> </i> </label>\n" +
+							"\t\t\t\t\t\t</li>";
+					})
+					$(".recommend").append(recommend_dom_text);
+					$(".recommend_span").off("click").on("click", function() {
+						var $dom = $(this);
+						var id = $dom.data("id");
+						var id = $(this).data("id");
+						$.ajax({
+							url: webURL + "/playlist/detail?id=" + id,
+							beforeSend: function() {
+								bindLoading($(".jp-playlist"), 619);
+							},
+							complete: function() {
+								fadeOutLoading($(".jp-playlist"));
+							},
+							success: function(data) {
+								if (data.code == 200) {
+									songList.length = 0;
+									$.each(data.playlist.tracks, function(index, value) {
+										var artist = "";
+										$.each(value.ar, function(index, value) {
+											artist += value.name + " ";
+										})
+										songList.push({
+											id: value.id,
+											title: value.name,
+											artist: artist,
+											mp3: "http://music.163.com/song/media/outer/url?id=" +
+												value.id + ".mp3",
+										})
+									});
+									setMusicList(songList);
+								}
+							}
+						})
+					})
+					$('.bxslider').bxSlider();
+				}
+			})
+
+			// $.ajax({
+			// 	url:webURL+'/recommend/resource',
+			// 	xhrFields: {
+			// 		withCredentials: true, //非同源需要携带用户登录的cookie，本页面不需要，其他项目必须添加该配置项
+			// 	},
+			// 	beforeSend: function() {
+			// 		//bindLoading($("#userDefault"));
+			// 	},
+			// 	complete: function() {
+			// 		//fadeOutLoading($("#userDefault"));
+			// 	},
+			// 	success:function(data){
+			// 		if(data.code==200){
+			// 			$(".recommend").html("");
+			// 					var recommend_dom_text="";
+			// 					$.each(data.recommend,function(index,value){
+			// 						recommend_dom_text+="<li><img src='"+value.picUrl+"' />\n" +
+			// 			"\t\t\t\t\t\t\t<p><span>"+value.name+"</span>"+value.copywriter+"<small>Topping ice cream pstry\n" +
+			// 			"\t\t\t\t\t\t\t\t\tcaramels gummi.Toffee halvah</small></p> <label>"+value.trackCount+" <i> </i> </label>\n" +
+			// 			"\t\t\t\t\t\t</li>";
+			// 					})
+			// 				$(".recommend").append(recommend_dom_text);
+			// 		}
+
+			// 	}
+			// })
+		}
+
+		/**
+		 * 初始化歌单
+		 */
+		function initSongList() {
+			$.ajax({
+				url: webURL + '/user/playlist?uid=' + ZQ_music_id,
+				beforeSend: function() {
+					bindLoading($("#userDefault"));
+				},
+				cache: true,
+				complete: function() {
+					fadeOutLoading($("#userDefault"));
+				},
+				success: function(data) {
+					var user_createSongList_dom_text = "";
+					if (data.code == 200) {
+
+						$.each(data.playlist, function(index, value) {
+							if (!value.subscribed) {
+								user_createSongList_dom_text +=
+									"<div class=\"extra-list-people-grid user-createSongList\">\n" +
+									"\t\t\t\t\t\t\t\t\t<div class=\"extra-list-people-pic-grid\">\n" +
+									"\t\t\t\t\t\t\t\t\t\t<img class=\"extra-list-people-pic\" style='border-radius: 30em' src='" +
+									value.coverImgUrl +
+									"' title='" + value.name + "' />\n" +
+									"\t\t\t\t\t\t\t\t\t\t<span class=\"extra-list-people-cstatus orange\"> </span>\n" +
+									"\t\t\t\t\t\t\t\t\t</div>\n" +
+									"\t\t\t\t\t\t\t\t\t<div class=\"extra-list-people-message\">\n" +
+									"\t\t\t\t\t\t\t\t\t\t<h3><a style='cursor:pointer' class='playlist_create' data-id='" +
+									value.id + "'>" +
+									value.name + "</a></h3>\n" +
+									"\t\t\t\t\t\t\t\t\t\t<p>" + value.name + "</p>\n" +
+									"\t\t\t\t\t\t\t\t\t</div>\n" +
+									"\t\t\t\t\t\t\t\t\t<div class=\"extra-list-people-message-post-date\">\n" +
+									"\t\t\t\t\t\t\t\t\t\t<span><a href=\"#\">" + getRealDate(value
+										.createTime) + "</a></span>\n" +
+									"\t\t\t\t\t\t\t\t\t</div>\n" +
+									"\t\t\t\t\t\t\t\t\t<div class=\"clear\"> </div>\n" +
+									"\t\t\t\t\t\t\t\t</div>";
+							} else {
+
+							}
+
+						});
+						$("#userDefault").append(user_createSongList_dom_text).perfectScrollbar().fadeIn(500);
+						$(".playlist_create").off('click').on("click", function() {
+							var id = $(this).data("id");
+							$.ajax({
+								url: webURL + "/playlist/detail?id=" + id,
+								beforeSend: function() {
+									bindLoading($(".jp-playlist"), 619);
+								},
+								complete: function() {
+									fadeOutLoading($(".jp-playlist"));
+								},
+								success: function(data) {
+									if (data.code == 200) {
+										songList.length = 0;
+										$.each(data.playlist.tracks, function(index, value) {
+											var artist = "";
+											$.each(value.ar, function(index, value) {
+												artist += value.name + " ";
+											})
+											songList.push({
+												id: value.id,
+												title: value.name,
+												artist: artist,
+												mp3: "http://music.163.com/song/media/outer/url?id=" +
+													value.id + ".mp3",
+											})
+										});
+										setMusicList(songList);
+										$("#userDefault").fadeOut(500)
+									}
+								}
+							})
+						})
+					}
+				}
+			})
+		}
+
+		/**
+		 * 初始化粉丝
+		 */
+		function initUserFans() {
+			$.ajax({
+				url: webURL + '/user/followeds?uid=' + ZQ_music_id,
+				beforeSend: function() {
+					bindLoading($("#userDefault"));
+				},
+				cache: true,
+				complete: function() {
+					fadeOutLoading($("#userDefault"));
+				},
+				success: function(data) {
+					var user_fans_dom_text = "";
+					if (data.code == 200) {
+						$.each(data.followeds, function(index, value) {
+							user_fans_dom_text += "<div class=\"extra-list-people-grid user-fans\">\n" +
+								"\t\t\t\t\t\t\t\t\t<div class=\"extra-list-people-pic-grid\">\n" +
+								"\t\t\t\t\t\t\t\t\t\t<img class=\"extra-list-people-pic\" style='border-radius: 30em' src='" +
+								value.avatarUrl +
+								"' title='" + value.nickname + "' />\n" +
+								"\t\t\t\t\t\t\t\t\t\t<span class=\"extra-list-people-cstatus green\"> </span>\n" +
+								"\t\t\t\t\t\t\t\t\t</div>\n" +
+								"\t\t\t\t\t\t\t\t\t<div class=\"extra-list-people-message\">\n" +
+								"\t\t\t\t\t\t\t\t\t\t<h3><a href=\"#\">" + value.nickname +
+								"</a></h3>\n" +
+								"\t\t\t\t\t\t\t\t\t\t<p>" + (value.signature == null ? '这个人很懒，没有留下签名' :
+									value.signature) + "</p>\n" +
+								"\t\t\t\t\t\t\t\t\t</div>\n" +
+								"\t\t\t\t\t\t\t\t\t<div class=\"extra-list-people-message-post-date\">\n" +
+								"\t\t\t\t\t\t\t\t\t\t<span><a href=\"#\">" + getRealDate(value.time) +
+								"</a></span>\n" +
+								"\t\t\t\t\t\t\t\t\t</div>\n" +
+								"\t\t\t\t\t\t\t\t\t<div class=\"clear\"> </div>\n" +
+								"\t\t\t\t\t\t\t\t</div>";
+						});
+						//user_fans_dom_text+="<div class='clear'> </div><div class='extra-list-loder-grid'><span> </span></div>";
+						$("#userDefault").append(user_fans_dom_text).perfectScrollbar().fadeIn(500);
+					}
+				}
+			})
+		}
+
+		/**
+		 * 初始化用户信息
+		 */
+		function initUserMessage() {
+			$.ajax({
+				url: webURL + '/user/detail?uid=' + ZQ_music_id,
+				beforeSend: function() {
+					bindLoading($(".user-account"));
+				},
+				complete: function() {
+					fadeOutLoading($(".user-account"));
+				},
+				success: function(data) {
+					$(".user-account").html("");
+					var user_account_dom_text = "<div class=\"status-grid-head\" style='background: url(" + data
+						.profile.backgroundUrl +
+						") no-repeat 0px 0px;'></div>\n" +
+						"\t\t\t\t\t\t\t<div class=\"status-people-pic\">\n" +
+						"\t\t\t\t\t\t\t\t<img class=\"stat-people-img\" src='" + data.profile.avatarUrl +
+						"?param=100y100' title=\"people-name\" />\n" +
+						"\t\t\t\t\t\t\t\t<img class=\"people-avilabel-point-active\" src=\"images/avila.png\" title=\"avilabel\" />\n" +
+						"\t\t\t\t\t\t\t\t<h2>" + data.profile.nickname + "</h2>\n" +
+						"\t\t\t\t\t\t\t\t<span>" + data.profile.signature + "</span>\n" +
+						"\t\t\t\t\t\t\t</div>\n" +
+						"\t\t\t\t\t\t\t<div class=\"status-corrent\">\n" +
+						"\t\t\t\t\t\t\t\t<ul>\n" +
+						"\t\t\t\t\t\t\t\t\t<li><a class=\"like-music\" href=\"#\">喜欢音乐</a></li>\n" +
+						"\t\t\t\t\t\t\t\t\t<li><a class=\"fans\" href=\"#\">粉丝</a></li>\n" +
+						"\t\t\t\t\t\t\t\t\t<li><a class=\"create-songList\" href=\"#\">创建歌单</a></li>\n" +
+						"\t\t\t\t\t\t\t\t\t<div class=\"clear\"> </div>\n" +
+						"\t\t\t\t\t\t\t\t</ul>\n" +
+						"\t\t\t\t\t\t\t</div>\n" +
+						"\t\t\t\t\t\t\t<div class=\"clear\"> </div>"
+					$(".user-account").append(user_account_dom_text);
+					$(".fans").on("click", function() {
+						if ($(".user-fans").length == 0) {
+							$(".user-createSongList").addClass("hidden-dom");
+							initUserFans();
+						}
+						if ($(".user-fans").hasClass("hidden-dom")) {
+							$(".user-fans").removeClass("hidden-dom");
+							$(".user-createSongList").addClass("hidden-dom");
+						} else {
+							$(".user-fans").addClass("hidden-dom");
+						}
+					})
+					$(".create-songList").on("click", function() {
+						if ($(".user-createSongList").length == 0) {
+							$(".user-fans").addClass("hidden-dom");
+							initSongList();
+						}
+						if ($(".user-createSongList").hasClass("hidden-dom")) {
+							$(".user-createSongList").removeClass("hidden-dom");
+							$(".user-fans").addClass("hidden-dom");
+						} else {
+							$(".user-createSongList").addClass("hidden-dom");
+						}
+					})
+				},
+			});
+		}
+
+		/**
+		 * 补零
+		 * @param {Object} num
+		 */
+		function addZero(num) {
+			if (parseInt(num) < 10) {
+				num = '0' + num;
+			}
+			return num;
+		}
+
+		/**
+		 * 时间戳转日期
+		 * @param {Object} str
+		 */
+		function getRealDate(str) {
+			var oDate = new Date(str),
+				oYear = oDate.getFullYear(),
+				oMonth = oDate.getMonth() + 1,
+				oDay = oDate.getDate(),
+				oHour = oDate.getHours(),
+				oMin = oDate.getMinutes(),
+				oSen = oDate.getSeconds(),
+				oTime = oYear + '-' + addZero(oMonth) + '-' + addZero(oDay) + ' ' + addZero(oHour) + ':' +
+				addZero(oMin) + ':' + addZero(oSen);
+			return oTime;
+		}
+	</script>
+</html>
